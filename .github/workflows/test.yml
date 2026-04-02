@@ -18,11 +18,17 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - ruby: '4.0'
+            sidekiq: '8.1'
+            activejob: '8.1'
+          - ruby: '3.4'
+            sidekiq: '8.0'
+            activejob: '8.0'
           - ruby: '3.3'
-            sidekiq: '7'
+            sidekiq: '7.3'
             activejob: '7.1'
           - ruby: '3.2'
-            sidekiq: '7'
+            sidekiq: '7.2'
             activejob: '7.0'
           - ruby: '3.1'
             sidekiq: '6'

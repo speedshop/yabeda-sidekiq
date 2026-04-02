@@ -8,7 +8,7 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 gemspec
 
 # rubocop:disable Bundler/DuplicatedGem
-sidekiq_version = ENV.fetch("SIDEKIQ_VERSION", "~> 7.2")
+sidekiq_version = ENV.fetch("SIDEKIQ_VERSION", "~> 8.1")
 case sidekiq_version
 when "HEAD"
   gem "sidekiq", git: "https://github.com/sidekiq/sidekiq.git"
@@ -33,10 +33,9 @@ end
 # rubocop:enable Bundler/DuplicatedGem
 
 group :development, :test do
-  gem "pry"
-  gem "pry-byebug", platform: :mri
-
-  gem "yabeda", github: "yabeda-rb/yabeda", branch: "master" # For RSpec matchers
+  gem "debug"
+  gem "ostruct"
+  gem "yabeda", ">= 0.13" # For RSpec matchers
   gem "rubocop", "~> 1.0"
   gem "rubocop-rspec"
 end
